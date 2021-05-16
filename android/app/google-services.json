@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856340208096",
+    "project_id": "patient-assistant-6b2a7",
+    "storage_bucket": "patient-assistant-6b2a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856340208096:android:babab9c4c90a294012b385",
+        "android_client_info": {
+          "package_name": "com.example.patient_assistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856340208096-sora8mq811812eg62sukdd5u1i83ot4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQAwrwIJnwOZLX4UYyBFPf1OUlFRZlvcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856340208096-sora8mq811812eg62sukdd5u1i83ot4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
