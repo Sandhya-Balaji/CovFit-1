@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:patient_assistant/screens/Survey.dart';
 import '../services/auth_service.dart';
+import 'Survey.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   //const HomePage({Key key}) : super(key: key);
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final AuthService _auth = AuthService();
 
   @override
@@ -15,6 +22,7 @@ class HomePage extends StatelessWidget {
             tabs: [
               Tab(
                 text: 'SURVEY',
+
               ),
               Tab(
                 text: 'SCHEDULE',
@@ -62,15 +70,7 @@ class HomePage extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  constraints: BoxConstraints.expand(),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/5026563.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
+                Survey()
               ],
             ),
             Stack(
