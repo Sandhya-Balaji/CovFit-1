@@ -208,6 +208,7 @@ class _SurveyState extends State<Survey> {
                           options.add(val4);
                         });
                       } ,
+
                       title: Text("YES",
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
