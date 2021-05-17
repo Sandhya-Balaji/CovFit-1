@@ -190,7 +190,7 @@ class _SurveyState extends State<Survey> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "4. Are you having Shortness of Breath or any difficulty in breathing?",
+                        "4. Are I having Shortness of Breath or any difficulty in breathing?",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,),
                     ),
