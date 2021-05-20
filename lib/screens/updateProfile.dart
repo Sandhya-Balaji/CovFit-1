@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:patient_assistant/models/user.dart';
 import 'package:patient_assistant/services/dataBase.dart';
 import 'package:provider/provider.dart';
 import '../models/profile.dart';
@@ -13,21 +13,21 @@ class UpdateProfile extends StatefulWidget {
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String name, age;
   String condition = 'NORMAL';
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
+    final u = Provider.of<MyUser>(context);
     print('UserUid');
-    print(user.uid);
+    print(u.uid);
     return StreamBuilder<Profile>(
-        stream: DatabaseService(uid: user.uid).getEachProfile(),
+        stream: DatabaseService(uid: u.uid).getEachProfile(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Profile profile = snapshot.data;
             return Form(
-                key: _formkey,
+                key: _formKey,
                 child: ListView(
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(20.0),
@@ -79,13 +79,15 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     ElevatedButton(
                         child: Text('UPDATE'),
                         onPressed: () async {
-                          _formkey.currentState.save();
-                          if (_formkey.currentState.validate()) {
+                          _formKey.currentState.save();
+                          if (_formKey.currentState.validate()) {
                             final pf = Profile(
-                              name: name,
-                              age: age,
-                              condition: condition,
+                              name: name ?? profile.name,
+                              age: age ?? profile.age,
+                              condition: condition ?? profile.condition,
                             );
+                            await DatabaseService(uid: u.uid).addProfile(pf);
+                            Navigator.pop(context);
                           }
                         }),
                   ],

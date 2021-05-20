@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:patient_assistant/screens/Survey.dart';
+import 'package:patient_assistant/screens/exerciseTile.dart';
 import 'package:patient_assistant/screens/general.dart';
 import 'package:patient_assistant/screens/updateProfile.dart';
 import '../services/auth_service.dart';
@@ -14,6 +16,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    void _showProfile() {
+      showModalBottomSheet(context: context, builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: UpdateProfile(),
+        );
+      });
+    }
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -32,14 +42,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           leading: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UpdateProfile()),
-              );
-            },
+            onTap: () => _showProfile(),
             child: Icon(
-              Icons.person, // add custom icons also
+              Icons.person,
+              semanticLabel: 'PROFILE',// add custom icons also
             ),
           ),
           title: Text(
@@ -58,29 +64,12 @@ class _HomePageState extends State<HomePage> {
         body: TabBarView(children: [
           Stack(
             children: [
-              Container(
-                constraints: BoxConstraints.expand(),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/5026563.jpg'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
+              Survey(),
             ],
           ),
           Stack(
             children: [
-              Container(
-                constraints: BoxConstraints.expand(),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/5026563.jpg'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              GenSchedule(),
+              ExerciseTile(),
             ],
           ),
           Stack(
