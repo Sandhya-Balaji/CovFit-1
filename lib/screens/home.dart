@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:patient_assistant/screens/Survey.dart';
+import 'package:patient_assistant/screens/exerciseTile.dart';
+import 'package:patient_assistant/screens/general.dart';
+import 'package:patient_assistant/screens/updateProfile.dart';
 import '../services/auth_service.dart';
-import 'Survey.dart';
 
 class HomePage extends StatefulWidget {
   //const HomePage({Key key}) : super(key: key);
@@ -14,6 +16,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    void _showProfile() {
+      showModalBottomSheet(context: context, builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: UpdateProfile(),
+        );
+      });
+    }
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -22,86 +32,60 @@ class _HomePageState extends State<HomePage> {
             tabs: [
               Tab(
                 text: 'SURVEY',
-
               ),
               Tab(
                 text: 'SCHEDULE',
               ),
               Tab(
-                text: 'CHATBOT',
+                text: 'CHAT BOT',
               ),
             ],
           ),
           leading: GestureDetector(
-            onTap: () {
-              showModalBottomSheet(context: context, builder: (context){
-                return Container(
-                  padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text("TEXT"),
-                    ],
-                  ),
-                );
-              }
-              );
-            },
+            onTap: () => _showProfile(),
             child: Icon(
-              Icons.person,  // add custom icons also
+              Icons.person,
+              semanticLabel: 'PROFILE',// add custom icons also
             ),
           ),
-          title: Text('HOME PAGE',),
+          title: Text(
+            'HOME PAGE',
+          ),
           centerTitle: true,
           actions: <Widget>[
-
             IconButton(
               icon: Icon(Icons.logout),
-              onPressed: () async
-              {
+              onPressed: () async {
                 await _auth.signOut();
               },
             ),
-
-
           ],
         ),
-        body: TabBarView(
-          children: [
-            Stack(
-              children: [
-                Survey()
-              ],
-            ),
-            Stack(
-              children: [
-                Container(
-                  constraints: BoxConstraints.expand(),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/5026563.jpg'),
-                      fit: BoxFit.fill,
-                    ),
+        body: TabBarView(children: [
+          Stack(
+            children: [
+              Survey(),
+            ],
+          ),
+          Stack(
+            children: [
+              ExerciseTile(),
+            ],
+          ),
+          Stack(
+            children: [
+              Container(
+                constraints: BoxConstraints.expand(),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/5026563.jpg'),
+                    fit: BoxFit.fill,
                   ),
                 ),
-
-              ],
-            ),
-            Stack(
-              children: [
-                Container(
-                  constraints: BoxConstraints.expand(),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/5026563.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ]
-        ),
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }
