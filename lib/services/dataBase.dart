@@ -21,5 +21,8 @@ class DatabaseService {
     return await _fireStoreDataBase.collection('Patient').doc(uid).set(pf.toJson());
   }
 
-
+  Stream<Profile> getEachProfile(){
+    return _fireStoreDataBase.collection('Patient').doc(uid).snapshots().map((document) =>
+        Profile.fromJson(document.data(), document.id));
+  }
 }
