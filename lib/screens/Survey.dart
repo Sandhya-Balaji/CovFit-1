@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:patient_assistant/screens/retakeSurvey.dart';
 
 class Survey extends StatefulWidget {
   const Survey({Key key}) : super(key: key);
@@ -10,6 +11,7 @@ class Survey extends StatefulWidget {
 class _SurveyState extends State<Survey> {
   int val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13 = 0;
   static List options = [];
+  // bool showValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,17 +167,6 @@ class _SurveyState extends State<Survey> {
                         ),
                       ),
                   ),
-                ),
-                Container(
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "4. Are I having Shortness of Breath or any difficulty in breathing?",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left,),
-                    ),
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
@@ -603,7 +594,7 @@ class _SurveyState extends State<Survey> {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "12. Have you been tested positive for COIVD-19?",
+                            "12. Have you been tested positive for COVID-19?",
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.left,),
                         ),
@@ -651,6 +642,20 @@ class _SurveyState extends State<Survey> {
                   Text(
                     "*REMEMBER TO TAKE THE SURVEY EVERY NOW AND THEN*",
                     style: TextStyle(color: Colors.red,fontSize: 14.0,letterSpacing: 1.5),
+                  ),
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    child: ElevatedButton.icon(
+                        onPressed: () {
+                          // Retake();
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) => Retake()),
+                          // );
+                        },
+                        icon: Icon(Icons.send),
+                      label:  Text("SUBMIT"),
+                    ),
                   ),
                 ],
               ),
