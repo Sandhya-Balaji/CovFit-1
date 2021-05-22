@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:patient_assistant/screens/retakeSurvey.dart';
+import 'package:patient_assistant/screens/retakeSurvey.dart';
 
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class Survey extends StatefulWidget {
   const Survey({Key key}) : super(key: key);
 
@@ -15,6 +16,7 @@ class _SurveyState extends State<Survey> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         body: Stack(
             children: [
               Container(
@@ -31,7 +33,7 @@ class _SurveyState extends State<Survey> {
                   children: <Widget>[
                     Center(
                       child: Text(
-                        "*Select the option that suits your condition*",
+                        "*SELECT THE OPTION THAT SUITS YOUR CONDITION*",
                         style: TextStyle(color: Colors.red,fontSize: 16.0,letterSpacing: 2.0),
                       ),
                     ),
@@ -646,14 +648,15 @@ class _SurveyState extends State<Survey> {
                   Container(
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton.icon(
-                        onPressed: () {
-                          // Retake();
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => Retake()),
-                          // );
-                        },
-                        icon: Icon(Icons.send),
+
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                           MaterialPageRoute(builder: (context) => Retake()),
+                         );
+                        showAlertDialog(context);
+                      },
+                      icon: Icon(Icons.send),
                       label:  Text("SUBMIT"),
                     ),
                   ),
@@ -663,3 +666,22 @@ class _SurveyState extends State<Survey> {
     );
   }
 }
+showAlertDialog(BuildContext context) {
+  // set up the button
+  showDialog(
+      context: _scaffoldKey.currentContext,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Success!!"),
+          content: Text("Survey submitted"),
+          actions: [
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      });
+} // show the dialog

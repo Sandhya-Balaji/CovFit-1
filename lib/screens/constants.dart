@@ -17,7 +17,7 @@ const FOOD_DATA = [
     "image":"soup.jpg"
   },
   {
-    "name":"2Phulkas+Rice+Salad",
+    "name":"2Phulkas+Rice",
     "brand":"Lunch",
     "price":13,
     "image":"lunch.jpg"
@@ -29,7 +29,7 @@ const FOOD_DATA = [
     "image":"juice.jpg"
   },
   {
-    "name":"Chapathi+Paneer+Salad",
+    "name":"Chapathi+Paneer",
     "brand":"Dinner",
     "price":20,
     "image":"din.jpg"

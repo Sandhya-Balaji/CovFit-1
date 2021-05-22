@@ -19,8 +19,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
   @override
   Widget build(BuildContext context) {
     final u = Provider.of<MyUser>(context);
-    print('UserUid');
-    print(u.uid);
     return StreamBuilder<Profile>(
         stream: DatabaseService(uid: u.uid).getEachProfile(),
         builder: (context, snapshot) {

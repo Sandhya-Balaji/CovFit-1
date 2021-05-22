@@ -41,10 +41,9 @@ class _GenScheduleState extends State<GenSchedule> {
                   children: <Widget>[
                     Text(
                       post["name"],
+                      maxLines: 3,
                       style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                      softWrap: false,
-                      overflow: TextOverflow.ellipsis,
+                          fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       post["brand"],
@@ -65,7 +64,7 @@ class _GenScheduleState extends State<GenSchedule> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
-                  width: 100,
+                  width: 50,
                 )
               ],
             ),
@@ -98,6 +97,11 @@ class _GenScheduleState extends State<GenSchedule> {
     final double categoryHeight = size.height * 0.30;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("SCHEDULE"),
+          centerTitle: true,
+
+        ),
         backgroundColor: Colors.white,
         body: Stack(
           children: [
