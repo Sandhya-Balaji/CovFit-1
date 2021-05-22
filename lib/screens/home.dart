@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:patient_assistant/screens/Survey.dart';
 import 'package:patient_assistant/screens/exerciseTile.dart';
 import 'package:patient_assistant/screens/general.dart';
+import 'package:patient_assistant/screens/scheduleHome.dart';
 import 'package:patient_assistant/screens/updateProfile.dart';
 import '../services/auth_service.dart';
 
@@ -69,20 +70,12 @@ class _HomePageState extends State<HomePage> {
           ),
           Stack(
             children: [
-              ExerciseTile(),
+              ScheduleHome(),
             ],
           ),
           Stack(
             children: [
-              Container(
-                constraints: BoxConstraints.expand(),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/5026563.jpg'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
+              ScheduleHome(),
             ],
           ),
         ]),
