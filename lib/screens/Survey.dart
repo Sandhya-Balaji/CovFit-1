@@ -168,7 +168,7 @@ class _SurveyState extends State<Survey> {
                           activeColor: Colors.red,
                         ),
                       ),
-                    ),
+                  ),
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
@@ -648,6 +648,7 @@ class _SurveyState extends State<Survey> {
                   Container(
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton.icon(
+
                       onPressed: () {
                         Navigator.push(
                           context,

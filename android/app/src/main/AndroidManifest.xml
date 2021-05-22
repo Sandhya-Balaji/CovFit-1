@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.patient_assistant">
    <application
-        android:label="patient_assistant"
+        android:label="Cov-Fit"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
