@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:patient_assistant/main.dart';
 import 'package:patient_assistant/screens/Survey.dart';
+import 'package:patient_assistant/screens/chatbot.dart';
 import 'package:patient_assistant/screens/exerciseTile.dart';
 import 'package:patient_assistant/screens/general.dart';
 import 'package:patient_assistant/screens/scheduleHome.dart';
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Stack(
             children: [
-              ScheduleHome(),
+              ChatBot(),
             ],
           ),
         ]),

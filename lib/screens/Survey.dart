@@ -11,7 +11,7 @@ class Survey extends StatefulWidget {
 
 class _SurveyState extends State<Survey> {
   int val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13 = 0;
-  static List options = [];
+  List options = [];
   // bool showValue = false;
   @override
   Widget build(BuildContext context) {
