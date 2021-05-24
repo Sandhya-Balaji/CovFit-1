@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:patient_assistant/models/profile.dart';
+import 'package:patient_assistant/screens/cardiac.dart';
+import 'package:patient_assistant/screens/diabetic.dart';
 import 'package:patient_assistant/screens/exerciseTile.dart';
+import 'package:patient_assistant/screens/exerciseYoung.dart';
+import '../screens/exerciseMiddle.dart';
 import 'package:patient_assistant/screens/general.dart';
+import 'package:patient_assistant/screens/kidney.dart';
+import 'package:patient_assistant/screens/others.dart';
 import 'package:patient_assistant/services/dataBase.dart';
 import 'package:provider/provider.dart';
 import '../models/user.dart';
@@ -52,10 +58,37 @@ class ScheduleHome extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => GenSchedule()));
+                                if(profile.condition == 'DIABETIC'){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Diabetic()));
+                                }
+                                if(profile.condition == 'HEART'){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Cardiac()));
+                                }
+                                if(profile.condition == 'LUNG'){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Others()));
+                                }
+                                if(profile.condition == 'KIDNEY'){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Kidney()));
+                                }
+                                if(profile.condition == 'NORMAL'){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => GenSchedule()));
+                                }
+
                               },
                               child: Text(
                                 'DIET PLAN',
@@ -64,25 +97,29 @@ class ScheduleHome extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ExerciseTile()));
+                                if (profile.age.compareTo('50') == 1){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ExerciseTile()));
+                                }
+                                if (profile.age.compareTo('50') == -1 && profile.age.compareTo('25') == 1){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ExerciseMiddle()));
+                                }
+
+                                if (profile.age.compareTo('25') == -1){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ExerciseYoung()));
+                                }
+
                               },
                               child: Text(
                                 'FITNESS PLAN',
-                                style: TextStyle(fontSize: 20.0),
-                              ),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => GenSchedule()));
-                              },
-                              child: Text(
-                                'PRESCRIPTION',
                                 style: TextStyle(fontSize: 20.0),
                               ),
                             ),
