@@ -10,9 +10,12 @@ Hardware and Software requirements -
 2) Backend -> Firebase
 3) Chatbot -> Dialogflow + flutter
 
-Process Flow - 
+Process Flow - ![ProcessFlow](https://user-images.githubusercontent.com/64311660/119370552-043a8f00-bcd3-11eb-8418-1c7d6acddd67.jpg)
 
-Data Flow Diagram -
+
+
+Data Flow Diagram -![image](https://user-images.githubusercontent.com/64311660/119370684-2cc28900-bcd3-11eb-9267-057007b66e6e.png)
+
 
 <!-- A new Flutter project.
 
