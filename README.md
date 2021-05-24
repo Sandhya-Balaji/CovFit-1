@@ -6,9 +6,13 @@ Description - This app is developed with the concept that the home quarantined p
 We have also tried to incorporate a chatbot which could be used to find beds and oxygen availability in case the situation of the user/patient gets worse.
 
 Hardware and Software requirements - 
-Frontend - Flutter (using dart language)
-Backend - Firebase
-Chatbot - Dialogflow + flutter
+1) Frontend -> Flutter (using dart language)
+2) Backend -> Firebase
+3) Chatbot -> Dialogflow + flutter
+
+Process Flow - 
+
+Data Flow Diagram -
 
 <!-- A new Flutter project.
 
