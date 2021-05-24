@@ -1,11 +1,14 @@
-# Virtual Assistance For Home Quarentined Covid Patients
+# Virtual Assistance For Home Quarantined Covid Patients
 
-Title - Virtual Assistance For Home Quarentined Covid Patients
+Title - Virtual Assistance For Home Quarantined Covid Patients
 
-Description - This app is developed with the concept that the home quarentined patients with mild infection of Covid could follow our daily Workout and Diet schedule inorder to keep them going through the day and help them give a relief both physcially and mentally due to the impact it has on the body and mind.
+Description - This app is developed with the concept that the home quarantined patients with mild infection of Covid could follow our daily Workout and Diet schedule inorder to keep them going through the day and help them give a relief both physcially and mentally due to the impact it has on the body and mind.
 We have also tried to incorporate a chatbot which could be used to find beds and oxygen availability in case the situation of the user/patient gets worse.
 
 Hardware and Software requirements - 
+Frontend - Flutter (using dart language)
+Backend - Firebase
+Chatbot - Dialogflow + flutter
 
 <!-- A new Flutter project.
 
