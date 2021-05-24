@@ -4,31 +4,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 
 
-
-class ChatBot extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Example Dialogflow Flutter',
-      theme: new ThemeData(
-        primarySwatch: Colors.deepOrange,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: new HomePageDialogflow(),
-    );
-  }
-}
-
-class HomePageDialogflow extends StatefulWidget {
-  HomePageDialogflow({Key key, this.title}) : super(key: key);
+class ChatBot extends StatefulWidget {
+  ChatBot({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomePageDialogflow createState() => new _HomePageDialogflow();
+  _ChatBot createState() => new _ChatBot();
 }
 
-class _HomePageDialogflow extends State<HomePageDialogflow> {
+class _ChatBot extends State<ChatBot> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = new TextEditingController();
 

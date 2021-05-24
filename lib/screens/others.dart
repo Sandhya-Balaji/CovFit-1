@@ -2,31 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+class Others extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-    );
-  }
+  _OthersState createState() => _OthersState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _OthersState extends State<Others> {
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   ScrollController controller = ScrollController();
   bool closeTopContainer = false;
@@ -38,12 +20,16 @@ class _MyHomePageState extends State<MyHomePage> {
     List<dynamic> responseList = FOOD_DATA;
     List<Widget> listItems = [];
     responseList.forEach((post) {
-      listItems.add(Container(
+      listItems.add(
+        Container(
           height: 150,
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.0)), color: Colors.white, boxShadow: [
-            BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
-          ]),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+              ]),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Row(
@@ -54,28 +40,36 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     Text(
                       post["name"],
-                      style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      maxLines: 3,
+                      style: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       post["brand"],
-                      style: const TextStyle(fontSize: 17, color: Colors.grey),
+                      style: const TextStyle(fontSize: 15, color: Colors.grey),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
                       "${post["price"]}:00 Hrs",
-                      style: const TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
+                  width: 100,
                 )
               ],
             ),
-          )));
+          ),
+        ),
+      );
     });
     setState(() {
       itemsData = listItems;
@@ -87,8 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     getPostsData();
     controller.addListener(() {
-
-      double value = controller.offset/119;
+      double value = controller.offset / 119;
 
       setState(() {
         topContainer = value;
@@ -100,69 +93,83 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final double categoryHeight = size.height*0.30;
+    final double categoryHeight = size.height * 0.30;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("SCHEDULE"),
+          centerTitle: true,
+
+        ),
         backgroundColor: Colors.white,
-        body: Container(
-          height: size.height,
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Stack(
+          children: [
+            Container(
+              constraints: BoxConstraints.expand(),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/5026563.jpg'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            Container(
+              height: size.height,
+              child: Column(
                 children: <Widget>[
+                  SizedBox(
+                    height: 15,
+                  ),
                   Text(
                     "DIET CHART",
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+                    style: TextStyle(
+                        fontSize: 21,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    "DIARRHOEA/FATIGUE",
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+
+                  AnimatedOpacity(
+                    duration: const Duration(milliseconds: 200),
+                    opacity: closeTopContainer ? 0 : 1,
+                    child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        width: size.width,
+                        alignment: Alignment.topCenter,
+                        height: closeTopContainer ? 0 : categoryHeight,
+                        child: categoriesScroller),
                   ),
+                  Expanded(
+                      child: ListView.builder(
+                          controller: controller,
+                          itemCount: itemsData.length,
+                          physics: BouncingScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            double scale = 1.0;
+                            if (topContainer > 0.5) {
+                              scale = index + 0.5 - topContainer;
+                              if (scale < 0) {
+                                scale = 0;
+                              } else if (scale > 1) {
+                                scale = 1;
+                              }
+                            }
+                            return Opacity(
+                              opacity: scale,
+                              child: Transform(
+                                transform: Matrix4.identity()
+                                  ..scale(scale, scale),
+                                alignment: Alignment.bottomCenter,
+                                child: Align(
+                                    heightFactor: 0.7,
+                                    alignment: Alignment.topCenter,
+                                    child: itemsData[index]),
+                              ),
+                            );
+                          })),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              AnimatedOpacity(
-                duration: const Duration(milliseconds: 200),
-                opacity: closeTopContainer?0:1,
-                child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    width: size.width,
-                    alignment: Alignment.topCenter,
-                    height: closeTopContainer?0:categoryHeight,
-                    child: categoriesScroller),
-              ),
-              Expanded(
-                  child: ListView.builder(
-                      controller: controller,
-                      itemCount: itemsData.length,
-                      physics: BouncingScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        double scale = 1.0;
-                        if (topContainer > 0.5) {
-                          scale = index + 0.5 - topContainer;
-                          if (scale < 0) {
-                            scale = 0;
-                          } else if (scale > 1) {
-                            scale = 1;
-                          }
-                        }
-                        return Opacity(
-                          opacity: scale,
-                          child: Transform(
-                            transform:  Matrix4.identity()..scale(scale,scale),
-                            alignment: Alignment.bottomCenter,
-                            child: Align(
-                                heightFactor: 0.7,
-                                alignment: Alignment.topCenter,
-                                child: itemsData[index]),
-                          ),
-                        );
-                      })),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

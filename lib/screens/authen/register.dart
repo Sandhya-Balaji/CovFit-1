@@ -86,7 +86,7 @@ class _RegisterState extends State<Register> {
                       icon: Icon(Icons.local_hospital_outlined),
                   ),
                   value: condition,
-                  items: <String>['BP', 'HEART', 'LUNG', 'KIDNEY','NORMAL']
+                  items: <String>['DIABETIC', 'HEART', 'LUNG', 'KIDNEY','NORMAL']
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,

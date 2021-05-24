@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ExerciseTile extends StatefulWidget {
-  //const ExerciseTile({Key key}) : super(key: key);
+import 'exerciseTile.dart';
+
+class ExerciseYoung extends StatefulWidget {
+  const ExerciseYoung({Key key}) : super(key: key);
 
   @override
-  _ExerciseTileState createState() => _ExerciseTileState();
+  _ExerciseYoungState createState() => _ExerciseYoungState();
 }
 
-class _ExerciseTileState extends State<ExerciseTile> {
+class _ExerciseYoungState extends State<ExerciseYoung> {
   bool isChecked1 = false;
   bool isChecked2 = false;
   bool isChecked3 = false;
@@ -80,7 +82,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                             width: 100,
                           ),
                           title: Text(
-                            "WALKING",
+                            "BRISK WALKING",
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -110,16 +112,16 @@ class _ExerciseTileState extends State<ExerciseTile> {
                                         vertical: 20.0, horizontal: 60.0),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [Text("INSTRUCTIONS", style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
-                                      Text("Walk at your own pace inside the room in which you are isolated.\n"
-                                      "Don't walk if :\n"
-                                        " •	Temp > 102 F\n"
-                                        " •	Oximeter readings < 92\n •	Pulse rate >105\n •	People with low bp\n •	Dizziness\n"
-                                      )],
+                                        Text("Walk at your own pace inside the room in which you are isolated.\n"
+                                            "Don't walk if :\n"
+                                            " •	Temp > 102 F\n"
+                                            " •	Oximeter readings < 92\n •	Pulse rate >105\n •	People with low bp\n •	Dizziness\n"
+                                        )],
                                     ),
                                   );
                                 });
@@ -138,7 +140,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                             width: 100,
                           ),
                           title: Text(
-                            "CLIMBING STAIRS",
+                            "EASY FITNESS EXERCISE",
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -168,7 +170,7 @@ class _ExerciseTileState extends State<ExerciseTile> {
                                         vertical: 20.0, horizontal: 60.0),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [Text("INSTRUCTIONS", style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
@@ -227,17 +229,17 @@ class _ExerciseTileState extends State<ExerciseTile> {
                                         vertical: 20.0, horizontal: 60.0),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [Text("INSTRUCTIONS", style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
                                         Text("Sit on a chair or on the ground cross legged, in a meditation position. \n"
-                                          "With your right thumb, close your right nostril and inhale through the left nostril.\n"
-                                          "Release your right nostril and with your middle and ring finger, close your left nostril exhaling through the right nostril.\n"
-                                          "Inhale through the right nostril, then release the fingers, closing the right nostril and exhaling through the left nostril.\n"
-                                          "Continue the slow breathing through alternate nostrils and focus on the breath.\n"
-                                          "Practise this for 10 minutes for benefits to start accruing.")],
+                                            "With your right thumb, close your right nostril and inhale through the left nostril.\n"
+                                            "Release your right nostril and with your middle and ring finger, close your left nostril exhaling through the right nostril.\n"
+                                            "Inhale through the right nostril, then release the fingers, closing the right nostril and exhaling through the left nostril.\n"
+                                            "Continue the slow breathing through alternate nostrils and focus on the breath.\n"
+                                            "Practise this for 10 minutes for benefits to start accruing.")],
                                     ),
                                   );
                                 });
@@ -286,17 +288,17 @@ class _ExerciseTileState extends State<ExerciseTile> {
                                         vertical: 20.0, horizontal: 60.0),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [Text("INSTRUCTIONS", style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                       ),),
-                                      Text("Sit on a chair or on the ground cross legged, in a meditation position."
-                                      	"Close your ears using your thumb and place your middle and ring fingers lightly at the inner corner of your eyes."
-                                      "Rest your index finger above your eyebrows and little finger where it rests on your cheeks."
-                                      "Take a deep breathe in and while exhaling make a soft humming sound similar to ‘hmmmmm’, throughout the entire exhalation. Inhale again and while exhaling make the humming sound."
-                                      "Practise for 10 minutes for benefits to start accruing."
-                                      )],
+                                        Text("Sit on a chair or on the ground cross legged, in a meditation position."
+                                            "Close your ears using your thumb and place your middle and ring fingers lightly at the inner corner of your eyes."
+                                            "Rest your index finger above your eyebrows and little finger where it rests on your cheeks."
+                                            "Take a deep breathe in and while exhaling make a soft humming sound similar to ‘hmmmmm’, throughout the entire exhalation. Inhale again and while exhaling make the humming sound."
+                                            "Practise for 10 minutes for benefits to start accruing."
+                                        )],
                                     ),
                                   );
                                 });
@@ -345,15 +347,15 @@ class _ExerciseTileState extends State<ExerciseTile> {
                                         vertical: 20.0, horizontal: 60.0),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text("INSTRUCTIONS", style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
                                         ),),
                                         Text("Lie down on your back without bending your knees. Slightly lift your hip area and keep your hands under them. "
-                                          "Now take a deep breath and bend your elbows a little. Push the upper part of your body. "
-                                          "Put your chest out while placing your head back on the floor. Hold the pose and breathe.")],
+                                            "Now take a deep breath and bend your elbows a little. Push the upper part of your body. "
+                                            "Put your chest out while placing your head back on the floor. Hold the pose and breathe.")],
                                     ),
                                   );
                                 });
@@ -367,136 +369,6 @@ class _ExerciseTileState extends State<ExerciseTile> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-class CategoriesScroller extends StatelessWidget {
-  const CategoriesScroller();
-
-  @override
-  Widget build(BuildContext context) {
-    final double categoryHeight =
-        MediaQuery.of(context).size.height * 0.30 - 50;
-    return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        child: FittedBox(
-          fit: BoxFit.fill,
-          alignment: Alignment.topCenter,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 150,
-                margin: EdgeInsets.only(right: 20),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Practice yoga in a calm atmosphere",
-                        style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: 150,
-                margin: EdgeInsets.only(right: 20),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.blue.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Have a relaxed body and mind",
-                          style: TextStyle(
-                              fontSize: 22,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 150,
-                margin: EdgeInsets.only(right: 20),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade300,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Do yoga on an empty or light stomach",
-                        style: TextStyle(
-                            fontSize: 23,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: 150,
-                margin: EdgeInsets.only(right: 20),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.orange.shade300,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Follow the instructions carefully",
-                        style: TextStyle(
-                            fontSize: 21,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
