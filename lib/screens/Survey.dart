@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:patient_assistant/models/surveyDetails.dart';
+import 'package:patient_assistant/models/user.dart';
 import 'package:patient_assistant/screens/retakeSurvey.dart';
+import 'package:patient_assistant/services/dataBase.dart';
+import 'package:provider/provider.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class Survey extends StatefulWidget {
@@ -15,6 +19,8 @@ class _SurveyState extends State<Survey> {
   // bool showValue = false;
   @override
   Widget build(BuildContext context) {
+    final u = Provider.of<MyUser>(context);
+    final DatabaseService _databaseServices = DatabaseService(uid: u.uid);
     return Scaffold(
         key: _scaffoldKey,
         body: Stack(
@@ -649,7 +655,9 @@ class _SurveyState extends State<Survey> {
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton.icon(
 
-                      onPressed: () {
+                      onPressed: () async{
+                        final sd = SurveyDetails(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12);
+                        await _databaseServices.addSurvey(sd);
                         Navigator.push(
                           context,
                            MaterialPageRoute(builder: (context) => Retake()),

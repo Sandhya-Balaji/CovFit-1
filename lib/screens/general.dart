@@ -64,7 +64,7 @@ class _GenScheduleState extends State<GenSchedule> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
-                  width: 50,
+                  width: 100,
                 )
               ],
             ),

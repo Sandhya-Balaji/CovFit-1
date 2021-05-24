@@ -1,6 +1,20 @@
-# patient_assistant
+# Virtual Assistance For Home Quarantined Covid Patients
 
-A new Flutter project.
+Title - Virtual Assistance For Home Quarantined Covid Patients
+
+Description - This app is developed with the concept that the home quarantined patients with mild infection of Covid could follow our daily Workout and Diet schedule inorder to keep them going through the day and help them give a relief both physcially and mentally due to the impact it has on the body and mind.
+We have also tried to incorporate a chatbot which could be used to find beds and oxygen availability in case the situation of the user/patient gets worse.
+
+Hardware and Software requirements - 
+1) Frontend -> Flutter (using dart language)
+2) Backend -> Firebase
+3) Chatbot -> Dialogflow + flutter
+
+Process Flow - 
+
+Data Flow Diagram -
+
+<!-- A new Flutter project.
 
 ## Getting Started
 
@@ -14,3 +28,4 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+ -->
